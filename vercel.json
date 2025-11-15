@@ -1,5 +1,5 @@
 {
-  "buildCommand": "cd frontend && npm install && npm run build",
-  "outputDirectory": "frontend/dist",
-  "installCommand": "echo 'Skip root install'"
+  "buildCommand": "cp -r frontend/src . && cp frontend/index.html . && cp frontend/vite.config.js . && npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite"
 }
