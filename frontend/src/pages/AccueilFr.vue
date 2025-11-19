@@ -15,7 +15,7 @@
             <p>Étudiant en 2ème année BUT Informatique à l'IUT du Littoral Côte d'Opale, je me spécialise dans la conception, le développement et la validation d'applications. Mon parcours est enrichi par des expériences en projets personnels, un service civique ainsi que ma passion pour les nouvelles technologies.</p>
           </div>
           <div class="col-md-6 text-center">
-            <div class="profile-placeholder rounded-circle mx-auto" style="width: 250px; height: 250px; background: #ddd;"></div>
+            <img src="/img/photo-profil.jpg" alt="Photo de Romain SIAME" class="img-fluid rounded-circle" style="max-width: 250px;">
           </div>
         </div>
       </div>

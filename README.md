@@ -127,6 +127,14 @@ Alternative simple: [resend.com](https://resend.com/) avec configuration similai
 2. Placer vos images dedans
 3. Référencer avec `/img/nom-image.jpg` dans les composants
 
+- `photo-profil.svg` (placeholder photo)
+- `git.svg` (icône GitHub)
+- `link.svg` (icône LinkedIn)
+- `Flutter.svg` (placeholder projet)
+- `morpion.svg` (placeholder projet)
+
+
+
 ### Modifier les couleurs
 
 Éditer `frontend/src/style.css` pour changer la palette de couleurs Bootstrap et les styles personnalisés.

@@ -15,7 +15,7 @@
             <p>I am a second-year Computer Science student at IUT du Littoral Côte d'Opale, specializing in application design, development, and validation. My journey is enriched by personal projects, a civic service, and my passion for new technologies.</p>
           </div>
           <div class="col-md-6 text-center">
-            <div class="profile-placeholder rounded-circle mx-auto" style="width: 250px; height: 250px; background: #ddd;"></div>
+            <img src="/img/photo-profil.jpg" alt="Photo of Romain SIAME" class="img-fluid rounded-circle" style="max-width: 250px;">
           </div>
         </div>
       </div>
