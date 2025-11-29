@@ -4,33 +4,15 @@
       <h2 class="text-center mb-5">Mes Projets</h2>
 
       <div class="row">
-        <div class="col-md-6 mb-4" v-for="project in projects" :key="project.id" data-aos="fade-up">
-          <div class="card project-card h-100">
-            <div v-if="project.images && project.images.length > 0" class="card-img-top">
-              <div :id="'carousel-' + project.id" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                  <div v-for="(img, idx) in project.images" :key="idx" class="carousel-item" :class="{ active: idx === 0 }">
-                    <img :src="img" class="d-block w-100" :alt="project.title" style="height: 250px; object-fit: cover;">
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" :data-bs-target="'#carousel-' + project.id" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" :data-bs-target="'#carousel-' + project.id" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
+        <div class="col-md-6 col-lg-4 mb-4" v-for="project in projects" :key="project.id">
+          <div class="card project-card h-100 shadow-sm">
+            <img v-if="project.image" :src="project.image" class="card-img-top" :alt="project.title" style="height: 200px; object-fit: cover;">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title text-primary">{{ project.title }}</h5>
+              <p class="card-text flex-grow-1">{{ project.description }}</p>
+              <div class="mt-2">
+                <span v-for="(tech, idx) in project.technologies" :key="idx" class="badge bg-secondary me-1 mb-1">{{ tech }}</span>
               </div>
-            </div>
-            <div class="card-body">
-              <h3 class="card-title">{{ project.title }}</h3>
-              <p class="card-text">{{ project.description }}</p>
-              <ul class="list-unstyled">
-                <li v-for="(tech, idx) in project.technologies" :key="idx">
-                  <strong>{{ tech }}</strong>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
@@ -48,65 +30,65 @@ export default {
         {
           id: 1,
           title: 'NodeBuster',
-          description: 'NodeBuster est un projet développé en Java, où j\'ai appliqué les principes de la programmation orientée objet et de gestion de données. (C1-Réaliser, C4-Conduire, C6-Collaborer)',
+          description: 'Projet développé en Java appliquant les principes de la POO et de gestion de données.',
           technologies: ['Java', 'POO', 'Gestion de données'],
-          images: ['/img/nodeBuster1.png', '/img/nodeBuster2.png', '/img/nodeBuster3.png']
+          image: '/img/nodeBuster1.png'
         },
         {
           id: 2,
           title: 'Astro-Photographie',
-          description: 'Astro-Photographie est un projet réalisé en binôme, où j\'ai utilisé la bibliothèque Astroquery pour récupérer des données astronomiques et les afficher. (C1-Réaliser, C2-Optimisation, C4-Conduire, C6-Collaborer)',
-          technologies: ['Python', 'Astroquery', 'Visualisation de données'],
-          images: ['/img/Astro1.png', '/img/Astro2.png', '/img/Astro3.png']
+          description: 'Projet en binôme utilisant Astroquery pour récupérer et afficher des données astronomiques.',
+          technologies: ['Python', 'Astroquery', 'Visualisation'],
+          image: '/img/Astro1.png'
         },
         {
           id: 3,
           title: 'Magasin Connect',
-          description: 'Magasin Connect permet de gérer le stock d\'un magasin, créer une liste de courses et afficher le chemin optimal. (C1-Réaliser, C2-Optimisation, C4-Conduire, C6-Collaborer)',
-          technologies: ['Java', 'Algorithmes', 'Gestion de stock'],
-          images: ['/img/magasin1.png', '/img/magasin2.png', '/img/magasin3.png']
+          description: 'Gestion de stock, création de liste de courses et affichage du chemin optimal.',
+          technologies: ['Java', 'Algorithmes', 'Gestion'],
+          image: '/img/magasin1.png'
         },
         {
           id: 4,
           title: 'Projet PHP',
-          description: 'Application web de gestion et classement des étudiants selon leurs résultats académiques. (C1-Réaliser, C2-Optimisation, C3-Administer, C4-Conduire)',
+          description: 'Application web de gestion et classement des étudiants selon leurs résultats académiques.',
           technologies: ['PHP', 'MySQL', 'CRUD'],
-          images: ['/img/php1.png', '/img/php2.png', '/img/php3.png']
+          image: '/img/php1.png'
         },
         {
           id: 5,
           title: 'Node.js API',
-          description: 'API dédiée à la gestion des cartes Pokémon avec un système d\'authentification sécurisé. (C1-Réaliser, C2-Optimisation, C4-Conduire)',
+          description: 'API dédiée à la gestion des cartes Pokémon avec système d\'authentification sécurisé.',
           technologies: ['Node.js', 'Express', 'JWT', 'MongoDB'],
-          images: ['/img/node1.png', '/img/node2.png', '/img/node3.png']
+          image: '/img/node1.png'
         },
         {
           id: 6,
           title: 'Vue.js API',
-          description: 'Interface web dynamique pour exploiter l\'API Pokémon. (C1-Réaliser, C2-Optimisation, C4-Conduire, C5-Gérer)',
+          description: 'Interface web dynamique pour exploiter l\'API Pokémon.',
           technologies: ['Vue.js', 'API REST', 'Frontend'],
-          images: ['/img/vue1.png', '/img/vue2.png', '/img/vue3.png']
+          image: '/img/vue1.png'
         },
         {
           id: 7,
           title: 'Flutter API',
-          description: 'Application mobile inspirée de Minecraft permettant d\'explorer les objets et recettes du jeu. (C1-Réaliser, C2-Optimisation, C4-Conduire, C5-Gérer)',
+          description: 'Application mobile inspirée de Minecraft pour explorer les objets et recettes du jeu.',
           technologies: ['Flutter', 'Dart', 'Mobile'],
-          images: ['/img/Flutter.png']
+          image: '/img/Flutter.png'
         },
         {
           id: 8,
           title: 'Socket Projet',
-          description: 'Jeu du Morpion en réseau où deux joueurs peuvent s\'affronter, avec gestion des spectateurs et des multiples parties. (C1-Réaliser, C2-Optimisation, C4-Conduire)',
+          description: 'Jeu du Morpion en réseau avec gestion des spectateurs et des multiples parties.',
           technologies: ['Socket.io', 'Node.js', 'Temps réel'],
-          images: ['/img/morpion.png', '/img/morpion1.png', '/img/morpion2.png']
+          image: '/img/morpion.png'
         },
         {
           id: 9,
           title: 'ERP',
-          description: 'Application de gestion d\'entreprise pour organiser les commandes, les produits et les employés.',
+          description: 'Application de gestion d\'entreprise pour organiser commandes, produits et employés.',
           technologies: ['Full-stack', 'Base de données', 'Gestion'],
-          images: ['/img/erp1.png', '/img/erp2.png', '/img/erp3.png']
+          image: '/img/erp1.png'
         }
       ]
     }
@@ -116,10 +98,19 @@ export default {
 
 <style scoped>
 .project-card {
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s ease;
+  border: none;
 }
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15) !important;
+}
+.card-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.badge {
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 </style>

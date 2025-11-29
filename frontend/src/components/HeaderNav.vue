@@ -9,18 +9,18 @@
       
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav" v-if="lang === 'fr'">
-          <li class="nav-item"><router-link to="/accueil" class="nav-link">Accueil</router-link></li>
-          <li class="nav-item"><router-link to="/competences" class="nav-link">Compétences</router-link></li>
-          <li class="nav-item"><router-link to="/projets" class="nav-link">Projets</router-link></li>
-          <li class="nav-item"><router-link to="/contact" class="nav-link">Contact</router-link></li>
-          <li class="nav-item"><router-link to="/engindex" class="nav-link">🇬🇧</router-link></li>
+          <li class="nav-item"><router-link to="/accueil" class="nav-link" active-class="active">Accueil</router-link></li>
+          <li class="nav-item"><router-link to="/competences" class="nav-link" active-class="active">Compétences</router-link></li>
+          <li class="nav-item"><router-link to="/projets" class="nav-link" active-class="active">Projets</router-link></li>
+          <li class="nav-item"><router-link to="/contact" class="nav-link" active-class="active">Contact</router-link></li>
+          <li class="nav-item"><a href="/engindex" class="nav-link">🇬🇧</a></li>
         </ul>
         <ul class="navbar-nav" v-else>
-          <li class="nav-item"><router-link to="/engindex" class="nav-link">Welcome</router-link></li>
-          <li class="nav-item"><router-link to="/engcompetences" class="nav-link">Skills</router-link></li>
-          <li class="nav-item"><router-link to="/engprojet" class="nav-link">Projects</router-link></li>
-          <li class="nav-item"><router-link to="/engcontact" class="nav-link">Contact</router-link></li>
-          <li class="nav-item"><router-link to="/accueil" class="nav-link">🇫🇷</router-link></li>
+          <li class="nav-item"><router-link to="/engindex" class="nav-link" active-class="active">Welcome</router-link></li>
+          <li class="nav-item"><router-link to="/engcompetences" class="nav-link" active-class="active">Skills</router-link></li>
+          <li class="nav-item"><router-link to="/engprojet" class="nav-link" active-class="active">Projects</router-link></li>
+          <li class="nav-item"><router-link to="/engcontact" class="nav-link" active-class="active">Contact</router-link></li>
+          <li class="nav-item"><a href="/accueil" class="nav-link">🇫🇷</a></li>
         </ul>
       </div>
     </div>
