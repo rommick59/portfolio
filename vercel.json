@@ -1,5 +1,8 @@
 {
   "buildCommand": "cp -r frontend/src . && cp -r frontend/public . && cp frontend/index.html . && cp frontend/vite.config.js . && npm run build",
   "outputDirectory": "dist",
-  "framework": "vite"
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
