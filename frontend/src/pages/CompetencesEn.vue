@@ -1,8 +1,8 @@
 <template>
-  <section class="bg-light py-5" data-aos="fade-up">
+  <section class="bg-light py-5">
     <div class="container">
-      <h2 class="text-center mb-5">💼 Skills</h2>
-      <div class="row">
+      <h2 class="text-center mb-5 scroll-animate">💼 Skills</h2>
+      <div class="row scroll-stagger">
         <div class="col-md-4 mb-4" v-for="comp in competences" :key="comp.id">
           <div class="card shadow-sm h-100">
             <div class="card-body">
@@ -18,8 +18,13 @@
 </template>
 
 <script>
+import { useScrollAnimation } from '../composables/useScrollAnimation'
+
 export default {
   name: 'CompetencesEn',
+  setup() {
+    useScrollAnimation()
+  },
   data() {
     return {
       competences: [

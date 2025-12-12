@@ -1,13 +1,13 @@
 <template>
   <div>
-    <section class="bg-light text-center py-5">
+    <section class="bg-light text-center py-5 scroll-animate">
       <div class="container">
         <h1 class="mb-4">Romain SIAME - Computer Science Student & Aspiring Web Developer</h1>
         <p class="lead mb-3">Passionate about programming, application development, and technical challenges.</p>
       </div>
     </section>
 
-    <section class="py-5">
+    <section class="py-5 scroll-animate">
       <div class="container">
         <h2 class="mb-4">👨‍💻 About Me</h2>
         <div class="row align-items-center">
@@ -21,10 +21,10 @@
       </div>
     </section>
 
-    <section class="bg-light py-5">
+    <section class="bg-light py-5 scroll-animate">
       <div class="container">
         <h2 class="mb-5 text-center">🎓 My Education</h2>
-        <div class="timeline">
+        <div class="timeline scroll-stagger">
           <div class="timeline-item mb-4">
             <div class="timeline-content card p-3">
               <h4>January 2024 - Present</h4>
@@ -47,7 +47,7 @@
       </div>
     </section>
 
-    <section class="py-5">
+    <section class="py-5 scroll-animate">
       <div class="container">
         <h2 class="mb-4">💼 My Professional Experience</h2>
         <p><strong>November 2021 - May 2022</strong><br>
@@ -56,7 +56,7 @@
       </div>
     </section>
 
-    <section class="py-5 text-center download-cv-section">
+    <section class="py-5 text-center download-cv-section scroll-animate">
       <div class="container">
         <a href="/cv/mon-cv.pdf" class="btn btn-primary" download>Download my CV</a>
       </div>
@@ -65,8 +65,13 @@
 </template>
 
 <script>
+import { useScrollAnimation } from '../composables/useScrollAnimation'
+
 export default {
-  name: 'AccueilEn'
+  name: 'AccueilEn',
+  setup() {
+    useScrollAnimation()
+  }
 }
 </script>
 

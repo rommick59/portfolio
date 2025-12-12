@@ -1,12 +1,12 @@
 <template>
-  <section class="contact-section py-5" data-aos="fade-up">
+  <section class="contact-section py-5">
     <div class="container">
-      <h2 class="text-center mb-5">📧 Contactez-moi</h2>
+      <h2 class="text-center mb-5 scroll-animate">📧 Contactez-moi</h2>
       
-      <div v-if="successMessage" class="alert alert-success">{{ successMessage }}</div>
-      <div v-if="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+      <div v-if="successMessage" class="alert alert-success scroll-animate">{{ successMessage }}</div>
+      <div v-if="errorMessage" class="alert alert-danger scroll-animate">{{ errorMessage }}</div>
       
-      <form @submit.prevent="handleSubmit" id="contactForm">
+      <form @submit.prevent="handleSubmit" id="contactForm" class="scroll-animate">
         <div class="row">
           <div class="col-md-6 mb-4">
             <label for="name" class="form-label">Nom</label>
@@ -35,8 +35,13 @@
 </template>
 
 <script>
+import { useScrollAnimation } from '../composables/useScrollAnimation'
+
 export default {
   name: 'ContactFr',
+  setup() {
+    useScrollAnimation()
+  },
   data() {
     return {
       form: {

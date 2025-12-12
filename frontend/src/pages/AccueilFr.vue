@@ -1,13 +1,13 @@
 <template>
   <div>
-    <section class="bg-light text-center py-5">
+    <section class="bg-light text-center py-5 scroll-animate">
       <div class="container">
         <h1 class="mb-4">Romain SIAME - Étudiant en BUT Informatique & Développeur web en devenir</h1>
         <p class="lead mb-3">Passionné par la programmation, le développement d'applications et les défis techniques.</p>
       </div>
     </section>
 
-    <section class="py-5">
+    <section class="py-5 scroll-animate">
       <div class="container">
         <h2 class="mb-4">👨‍💻 À Propos de moi</h2>
         <div class="row align-items-center">
@@ -21,10 +21,10 @@
       </div>
     </section>
 
-    <section class="bg-light py-5">
+    <section class="bg-light py-5 scroll-animate">
       <div class="container">
         <h2 class="mb-5 text-center">🎓 Ma Formation</h2>
-        <div class="timeline">
+        <div class="timeline scroll-stagger">
           <div class="timeline-item mb-4">
             <div class="timeline-content card p-3">
               <h4>Janvier 2024 - Présent</h4>
@@ -47,7 +47,7 @@
       </div>
     </section>
 
-    <section class="py-5">
+    <section class="py-5 scroll-animate">
       <div class="container">
         <h2 class="mb-4">💼 Mon Expérience Professionnelle</h2>
         <p><strong>Novembre 2021 - Mai 2022</strong><br>
@@ -56,7 +56,7 @@
       </div>
     </section>
 
-    <section class="py-5 text-center download-cv-section">
+    <section class="py-5 text-center download-cv-section scroll-animate">
       <div class="container">
         <a href="/cv/mon-cv.pdf" class="btn btn-primary" download>Télécharger mon CV</a>
       </div>
@@ -65,8 +65,13 @@
 </template>
 
 <script>
+import { useScrollAnimation } from '../composables/useScrollAnimation'
+
 export default {
-  name: 'AccueilFr'
+  name: 'AccueilFr',
+  setup() {
+    useScrollAnimation()
+  }
 }
 </script>
 

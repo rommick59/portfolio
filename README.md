@@ -7,8 +7,9 @@ Portfolio personnel développé avec Vue.js 3, Vue Router, Bootstrap et déploya
 - ✅ Site bilingue (Français / Anglais)
 - ✅ Pages: Accueil, Compétences, Projets, Contact
 - ✅ Navigation responsive avec Bootstrap 5
-- ✅ Animations AOS (Animate On Scroll)
-- ✅ Formulaire de contact avec API serverless
+- ✅ Animations au scroll (Intersection Observer)
+- ✅ Transitions de pages fluides
+- ✅ **Formulaire de contact fonctionnel avec envoi d'emails**
 - ✅ Prêt pour déploiement sur Vercel
 
 ## 📁 Structure du projet
@@ -90,27 +91,29 @@ npx vercel --prod
 
 ## 📧 Configuration du formulaire de contact
 
-Le formulaire de contact utilise l'endpoint `/api/contact.js`. Pour activer l'envoi d'emails en production:
+Le formulaire de contact est **déjà configuré** pour envoyer des emails à **siame.romain.scw@gmail.com** ! 🎉
 
-### Option A: SendGrid (Recommandé)
+### 🚀 Configuration rapide (3 minutes)
 
-1. Créer un compte [SendGrid](https://sendgrid.com/)
-2. Générer une clé API
-3. Dans Vercel Dashboard → Settings → Environment Variables, ajouter:
-   - `SENDGRID_API_KEY` = votre clé API
-   - `TO_EMAIL` = votre email (ex: siame.romain.scw@gmail.com)
-   - `FROM_EMAIL` = email vérifié dans SendGrid
+**📖 Guide détaillé :** Consultez [QUICKSTART_CONTACT.md](QUICKSTART_CONTACT.md)
 
-4. Installer SendGrid dans le projet:
-```powershell
-npm install @sendgrid/mail
-```
+**Résumé :**
+1. Créez un mot de passe d'application Gmail : https://myaccount.google.com/apppasswords
+2. Ajoutez-le dans le fichier `.env` :
+   ```env
+   EMAIL_USER=siame.romain.scw@gmail.com
+   EMAIL_PASSWORD=votre_mot_de_passe_application
+   ```
+3. Sur Vercel, ajoutez les mêmes variables dans **Settings → Environment Variables**
 
-5. Décommenter le code SendGrid dans `api/contact.js`
+### 📧 Ce que vous recevrez
 
-### Option B: Resend
+- Email HTML formaté joliment
+- Nom et email de l'expéditeur
+- Message complet
+- Fonction "Répondre" directement configurée
 
-Alternative simple: [resend.com](https://resend.com/) avec configuration similaire.
+**Note :** Nodemailer est déjà installé et configuré. Plus d'infos dans [CONTACT_SETUP.md](CONTACT_SETUP.md)
 
 ## 🎨 Personnalisation
 

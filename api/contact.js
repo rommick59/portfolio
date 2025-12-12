@@ -1,67 +1,116 @@
 // Vercel serverless function for contact form
-// This handles form submissions and could send emails via a service like SendGrid, Nodemailer, etc.
+const nodemailer = require('nodemailer');
 
 module.exports = async (req, res) => {
+  // Enable CORS
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Handle preflight request
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   // Only allow POST requests
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' })
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
-    const { name, email, message } = req.body
+    const { name, email, message } = req.body;
 
     // Validation
     if (!name || !email || !message) {
-      return res.status(400).json({ error: 'All fields are required' })
+      return res.status(400).json({ error: 'Tous les champs sont requis' });
     }
 
     // Email regex validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return res.status(400).json({ error: 'Invalid email format' })
+      return res.status(400).json({ error: 'Format d\'email invalide' });
     }
 
-    // Here you would typically send an email using a service like:
-    // - SendGrid (https://sendgrid.com/)
-    // - Resend (https://resend.com/)
-    // - Nodemailer with SMTP
-    // - AWS SES
-    
-    // For now, just log and return success
-    console.log('Contact form submission:', { name, email, message })
+    // Configuration du transporteur Nodemailer
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER || 'siame.romain.scw@gmail.com',
+        pass: process.env.EMAIL_PASSWORD // Mot de passe d'application Gmail
+      }
+    });
 
-    // In production, you would configure environment variables in Vercel:
-    // - SENDGRID_API_KEY
-    // - TO_EMAIL (your email address)
-    // Then use a library to send the actual email
-
-    /*
-    Example with SendGrid (after npm install @sendgrid/mail):
-    
-    const sgMail = require('@sendgrid/mail')
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-    
-    const msg = {
-      to: process.env.TO_EMAIL || 'siame.romain.scw@gmail.com',
-      from: process.env.FROM_EMAIL,
+    // Options de l'email
+    const mailOptions = {
+      from: process.env.EMAIL_USER || 'siame.romain.scw@gmail.com',
+      to: 'siame.romain.scw@gmail.com',
       subject: `Nouveau message depuis le portfolio de ${name}`,
-      text: `Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-      html: `<p><strong>Nom:</strong> ${name}</p>
-             <p><strong>Email:</strong> ${email}</p>
-             <p><strong>Message:</strong></p>
-             <p>${message}</p>`
-    }
-    
-    await sgMail.send(msg)
-    */
+      replyTo: email,
+      html: `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            .header { background-color: #007bff; color: white; padding: 20px; border-radius: 5px 5px 0 0; }
+            .content { background-color: #f8f9fa; padding: 20px; border-radius: 0 0 5px 5px; }
+            .field { margin-bottom: 15px; }
+            .label { font-weight: bold; color: #007bff; }
+            .message-box { background-color: white; padding: 15px; border-left: 4px solid #007bff; margin-top: 10px; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h2>📧 Nouveau message depuis votre portfolio</h2>
+            </div>
+            <div class="content">
+              <div class="field">
+                <span class="label">Nom :</span> ${name}
+              </div>
+              <div class="field">
+                <span class="label">Email :</span> ${email}
+              </div>
+              <div class="field">
+                <span class="label">Message :</span>
+                <div class="message-box">
+                  ${message.replace(/\n/g, '<br>')}
+                </div>
+              </div>
+            </div>
+          </div>
+        </body>
+        </html>
+      `,
+      text: `
+Nouveau message depuis votre portfolio
+
+Nom: ${name}
+Email: ${email}
+
+Message:
+${message}
+
+---
+Vous pouvez répondre directement à cet email pour contacter ${name}.
+      `
+    };
+
+    // Envoi de l'email
+    await transporter.sendMail(mailOptions);
+
+    console.log('Email envoyé avec succès à siame.romain.scw@gmail.com');
 
     return res.status(200).json({ 
       success: true, 
-      message: 'Message received! (Email sending not configured yet)' 
-    })
+      message: 'Message envoyé avec succès !' 
+    });
 
   } catch (error) {
-    console.error('Contact form error:', error)
-    return res.status(500).json({ error: 'Internal server error' })
+    console.error('Erreur lors de l\'envoi de l\'email:', error);
+    return res.status(500).json({ 
+      error: 'Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer.' 
+    });
   }
-}
+};

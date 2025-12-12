@@ -1,9 +1,9 @@
 <template>
   <section class="projects-section py-5">
     <div class="container">
-      <h2 class="text-center mb-5">Mes Projets</h2>
+      <h2 class="text-center mb-5 scroll-animate">Mes Projets</h2>
 
-      <div class="row">
+      <div class="row scroll-stagger">
         <div class="col-md-6 col-lg-4 mb-4" v-for="project in projects" :key="project.id">
           <div class="card project-card h-100 shadow-sm">
             <img v-if="project.image" :src="project.image" class="card-img-top" :alt="project.title" style="height: 200px; object-fit: cover;">
@@ -22,8 +22,13 @@
 </template>
 
 <script>
+import { useScrollAnimation } from '../composables/useScrollAnimation'
+
 export default {
   name: 'ProjetsFr',
+  setup() {
+    useScrollAnimation()
+  },
   data() {
     return {
       projects: [
