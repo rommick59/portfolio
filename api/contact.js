@@ -20,6 +20,17 @@ module.exports = async (req, res) => {
   try {
     const { name, email, message } = req.body;
 
+    // Vérifier les variables d'environnement
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
+      console.error('Variables d\'environnement manquantes:', {
+        EMAIL_USER: !!process.env.EMAIL_USER,
+        EMAIL_PASSWORD: !!process.env.EMAIL_PASSWORD
+      });
+      return res.status(500).json({ 
+        error: 'Configuration email manquante. Contactez l\'administrateur.' 
+      });
+    }
+
     // Validation
     if (!name || !email || !message) {
       return res.status(400).json({ error: 'Tous les champs sont requis' });
@@ -35,14 +46,14 @@ module.exports = async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.EMAIL_USER || 'siame.romain.scw@gmail.com',
-        pass: process.env.EMAIL_PASSWORD // Mot de passe d'application Gmail
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASSWORD
       }
     });
 
     // Options de l'email
     const mailOptions = {
-      from: process.env.EMAIL_USER || 'siame.romain.scw@gmail.com',
+      from: process.env.EMAIL_USER,
       to: 'siame.romain.scw@gmail.com',
       subject: `Nouveau message depuis le portfolio de ${name}`,
       replyTo: email,
@@ -109,8 +120,10 @@ Vous pouvez répondre directement à cet email pour contacter ${name}.
 
   } catch (error) {
     console.error('Erreur lors de l\'envoi de l\'email:', error);
+    console.error('Stack trace:', error.stack);
     return res.status(500).json({ 
-      error: 'Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer.' 
+      error: 'Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer.',
+      details: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
 };
