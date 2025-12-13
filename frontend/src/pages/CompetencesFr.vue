@@ -1,15 +1,14 @@
 <template>
   <section class="bg-light py-5">
     <div class="container">
-      <h2 class="text-center mb-5 scroll-animate">💼 Compétences</h2>
-      <div class="row scroll-stagger">
-        <div class="col-md-4 mb-4" v-for="comp in competences" :key="comp.id">
-          <div class="card shadow-sm h-100">
-            <div class="card-body">
-              <h5 class="card-title text-center">{{ comp.title }}</h5>
-              <h6 class="card-subtitle mb-3 text-center">{{ comp.subtitle }}</h6>
-              <p class="card-text">{{ comp.description }}</p>
+      <h2 class="text-center mb-5 scroll-animate">Langages & Technologies</h2>
+      <div class="row scroll-stagger justify-content-center">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4" v-for="tech in technologies" :key="tech.id">
+          <div class="tech-card text-center p-3">
+            <div class="tech-logo-container mb-2">
+              <img :src="tech.logo" :alt="tech.name" class="tech-logo" />
             </div>
+            <h6 class="tech-name">{{ tech.name }}</h6>
           </div>
         </div>
       </div>
@@ -27,45 +26,135 @@ export default {
   },
   data() {
     return {
-      competences: [
+      technologies: [
         {
           id: 1,
-          title: 'C1 - Réaliser',
-          subtitle: 'Développer des applications logicielles robustes et fonctionnelles',
-          description: 'Conception et implémentation d\'applications en respectant les bonnes pratiques. Programmation avec divers langages (Java, Python, JavaScript, etc.).'
+          name: 'Vue.js',
+          logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg'
         },
         {
           id: 2,
-          title: 'C2 - Optimisation',
-          subtitle: 'Améliorer la performance et la qualité du code',
-          description: 'Application des principes SOLID et des design patterns. Optimisation des requêtes et de la gestion des ressources. Refactoring et tests pour garantir un code propre et maintenable.'
+          name: 'Node.js',
+          logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg'
         },
         {
           id: 3,
-          title: 'C3 - Administrer',
-          subtitle: 'Gérer l\'infrastructure et le déploiement des applications',
-          description: 'Configuration et administration de bases de données (SQL, MongoDB). Déploiement et gestion des services via Docker, Nginx, Wamp, et hébergement cloud. Sécurisation des applications et gestion des accès utilisateurs.'
+          name: 'Python',
+          logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg'
         },
         {
           id: 4,
-          title: 'C4 - Gérer',
-          subtitle: 'Planifier et organiser le développement d\'un projet informatique',
-          description: 'Gestion de projet avec des outils comme Trello, Git. Rédaction de documentation technique et suivi des tâches. Analyse des besoins et élaboration d\'un cahier des charges.'
+          name: 'PHP',
+          logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg'
         },
         {
           id: 5,
-          title: 'C5 - Conduire',
-          subtitle: 'Piloter un projet et coordonner une équipe technique',
-          description: 'Mise en place de méthodologies Agile / Scrum pour une gestion efficace. Suivi de l\'avancement et gestion des priorités. Communication et coordination entre les membres de l\'équipe.'
+          name: 'Symfony',
+          logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/symfony/symfony-original.svg'
         },
         {
           id: 6,
-          title: 'C6 - Collaborer',
-          subtitle: 'Travailler efficacement en équipe et contribuer à des projets communs',
-          description: 'Utilisation de Git/GitHub pour le travail collaboratif. Participation aux revues de code et aux décisions techniques. Communication efficace entre les développeurs.'
+          name: 'Kubernetes',
+          logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg'
+        },
+        {
+          id: 7,
+          name: 'Docker',
+          logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg'
+        },
+        {
+          id: 8,
+          name: 'SQL',
+          logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg'
+        },
+        {
+          id: 9,
+          name: 'NoSQL',
+          logo: '/img/tech-logos/Nosql.png'
+        },
+        {
+          id: 10,
+          name: 'Java',
+          logo: '/img/tech-logos/Java.png'
+        },
+        {
+          id: 11,
+          name: 'C',
+          logo: '/img/tech-logos/C.png'
+        },
+        {
+          id: 12,
+          name: 'C++',
+          logo: '/img/tech-logos/C++.png'
+        },
+        {
+          id: 13,
+          name: 'Flutter',
+          logo: '/img/tech-logos/Flutter.png'
+        },
+        {
+          id: 14,
+          name: 'Dart',
+          logo: '/img/tech-logos/Dart.png'
+        },
+        {
+          id: 15,
+          name: 'REST API',
+          logo: '/img/tech-logos/APIRest.png'
         }
       ]
     }
   }
 }
 </script>
+
+<style scoped>
+.tech-card {
+  background: white;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.tech-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tech-logo-container {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.tech-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .tech-logo-container {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .tech-name {
+    font-size: 0.8rem;
+  }
+}
+</style>
