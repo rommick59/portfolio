@@ -1,7 +1,7 @@
 <template>
-  <section class="projects-section py-5">
-    <div class="container">
-      <h2 class="text-center mb-4 scroll-animate">My Projects</h2>
+  <section class="neo-section neo-min projects-section py-5">
+    <div class="container neo-content">
+      <h2 class="text-center mb-4 scroll-animate neo-heading">My Projects</h2>
       
       <!-- Filters -->
       <div class="filters-container text-center mb-5 scroll-animate">
@@ -28,7 +28,7 @@
           v-for="project in filteredProjects" 
           :key="project.id"
         >
-            <div class="card project-card h-100 shadow-sm">
+            <div class="card neo-card project-card h-100">
               <img v-if="project.image" :src="project.image" class="card-img-top" :alt="project.title" style="height: 200px; object-fit: cover;">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title text-primary">{{ project.title }}</h5>
@@ -156,11 +156,10 @@ export default {
 <style scoped>
 .project-card {
   transition: all 0.3s ease;
-  border: none;
 }
 .project-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15) !important;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.32) !important;
 }
 .card-title {
   font-weight: 600;
@@ -182,9 +181,9 @@ export default {
 
 .filter-btn {
   padding: 8px 20px;
-  border: 2px solid #007bff;
-  background-color: white;
-  color: #007bff;
+  border: 1px solid rgba(34, 211, 238, 0.45);
+  background-color: rgba(15, 23, 42, 0.65);
+  color: #e2e8f0;
   border-radius: 25px;
   font-weight: 500;
   font-size: 0.9rem;
@@ -194,16 +193,18 @@ export default {
 }
 
 .filter-btn:hover {
-  background-color: #007bff;
-  color: white;
+  background-color: rgba(34, 211, 238, 0.15);
+  border-color: rgba(34, 211, 238, 0.75);
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
 .filter-btn.active {
-  background-color: #007bff;
-  color: white;
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+  background-color: rgba(34, 211, 238, 0.22);
+  color: #ffffff;
+  border-color: rgba(34, 211, 238, 0.85);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
 }
 
 @media (max-width: 768px) {

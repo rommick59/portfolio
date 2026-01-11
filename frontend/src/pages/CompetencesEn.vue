@@ -1,14 +1,14 @@
 <template>
-  <section class="bg-light py-5">
-    <div class="container">
-      <h2 class="text-center mb-5 scroll-animate">Languages & Technologies</h2>
+  <section class="neo-section neo-min py-5">
+    <div class="container neo-content">
+      <h2 class="text-center mb-5 scroll-animate neo-heading">Languages & Technologies</h2>
       <div class="row scroll-stagger justify-content-center">
         <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4" v-for="tech in technologies" :key="tech.id">
-          <div class="tech-card text-center p-3">
-            <div class="tech-logo-container mb-2">
-              <img :src="tech.logo" :alt="tech.name" class="tech-logo" />
+          <div class="neo-tech-card text-center p-3">
+            <div class="neo-tech-logo-container mb-3 mx-auto">
+              <img :src="tech.logo" :alt="tech.name" class="neo-tech-logo" />
             </div>
-            <h6 class="tech-name">{{ tech.name }}</h6>
+            <h6 class="neo-tech-name">{{ tech.name }}</h6>
           </div>
         </div>
       </div>
@@ -109,52 +109,5 @@ export default {
 </script>
 
 <style scoped>
-.tech-card {
-  background: white;
-  border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-}
-
-.tech-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.tech-logo-container {
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tech-logo {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.tech-name {
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin: 0;
-  color: #333;
-}
-
-@media (max-width: 768px) {
-  .tech-logo-container {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .tech-name {
-    font-size: 0.8rem;
-  }
-}
+/* Intentionnellement vide : styles globaux neo-* dans src/style.css */
 </style>

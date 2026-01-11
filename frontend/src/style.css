@@ -5,6 +5,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  background: var(--neo-bg);
+  color: var(--neo-text);
 }
 
 /* Page Transitions */
@@ -281,4 +283,233 @@ footer {
   justify-content: center;
   color: white;
   font-size: 4rem;
+}
+
+/* Neo (dark/grid/glow) theme helpers */
+:root {
+  --neo-bg: #020617;      /* slate-950 */
+  --neo-surface: #0b1220; /* close to slate-900 */
+  --neo-border: rgba(148, 163, 184, 0.18);
+  --neo-text: #cbd5e1;    /* slate-300 */
+  --neo-muted: #94a3b8;   /* slate-400 */
+  --neo-cyan: #22d3ee;
+  --neo-purple: #a855f7;
+}
+
+.neo-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--neo-bg);
+  color: var(--neo-text);
+}
+
+/* Minimal variant (Template C): no grid, no glow, clean typography */
+.neo-section.neo-min {
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(34, 211, 238, 0.10), transparent 60%),
+    radial-gradient(900px 500px at 80% 0%, rgba(168, 85, 247, 0.08), transparent 55%),
+    linear-gradient(180deg, rgba(2, 6, 23, 1), rgba(2, 6, 23, 1));
+}
+
+.neo-section.neo-min .neo-glow {
+  display: none;
+}
+
+.neo-section.neo-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.55) 1px, transparent 1px),
+    linear-gradient(to right, rgba(148, 163, 184, 0.55) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.neo-content {
+  position: relative;
+  z-index: 1;
+}
+
+.neo-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 999px;
+  filter: blur(120px);
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.neo-glow.neo-glow--cyan {
+  top: -120px;
+  left: 18%;
+  background: radial-gradient(circle at 30% 30%, rgba(34, 211, 238, 0.8), transparent 60%);
+}
+
+.neo-glow.neo-glow--purple {
+  bottom: -140px;
+  right: 18%;
+  background: radial-gradient(circle at 30% 30%, rgba(168, 85, 247, 0.8), transparent 60%);
+}
+
+.neo-heading {
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.neo-section h1,
+.neo-section h2,
+.neo-section h3,
+.neo-section h4,
+.neo-section h5,
+.neo-section h6 {
+  color: #ffffff;
+}
+
+.neo-subheading {
+  color: var(--neo-muted);
+}
+
+.neo-surface {
+  background: rgba(15, 23, 42, 0.55);
+  border-top: 1px solid rgba(148, 163, 184, 0.10);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.10);
+}
+
+/* Minimal separators */
+.neo-section.neo-min .neo-surface {
+  background: rgba(15, 23, 42, 0.35);
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+/* Navbar / Footer minimal theme */
+.neo-nav {
+  background: rgba(2, 6, 23, 0.85) !important;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.neo-nav .navbar-brand {
+  color: #ffffff !important;
+  letter-spacing: -0.02em;
+}
+
+.neo-nav .nav-link {
+  color: rgba(226, 232, 240, 0.86) !important;
+}
+
+.neo-nav .nav-link:hover,
+.neo-nav .nav-link.active {
+  color: #ffffff !important;
+}
+
+.neo-footer {
+  background: rgba(2, 6, 23, 0.85) !important;
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.neo-section .text-muted {
+  color: var(--neo-muted) !important;
+}
+
+.neo-section .text-primary {
+  color: var(--neo-cyan) !important;
+}
+
+.neo-card {
+  background: rgba(15, 23, 42, 0.88) !important;
+  color: var(--neo-text);
+  border: 1px solid var(--neo-border) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.neo-section .card {
+  background: rgba(15, 23, 42, 0.88);
+  color: var(--neo-text);
+  border: 1px solid var(--neo-border);
+}
+
+.neo-section .badge.bg-secondary {
+  background-color: rgba(148, 163, 184, 0.16) !important;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  color: #e2e8f0;
+}
+
+.neo-section .form-label {
+  color: #e2e8f0;
+}
+
+.neo-section .form-control {
+  background: rgba(2, 6, 23, 0.55);
+  color: #e2e8f0;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.neo-section .form-control::placeholder {
+  color: rgba(148, 163, 184, 0.85);
+}
+
+.neo-section .form-control:focus {
+  background: rgba(2, 6, 23, 0.55);
+  color: #e2e8f0;
+  border-color: rgba(34, 211, 238, 0.55);
+  box-shadow: 0 0 0 0.25rem rgba(34, 211, 238, 0.15);
+}
+
+.neo-tech-card {
+  background: rgba(15, 23, 42, 0.88);
+  border: 1px solid var(--neo-border);
+  border-left: 4px solid rgba(34, 211, 238, 0.85);
+  border-radius: 12px;
+  height: 100%;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.neo-tech-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(34, 211, 238, 0.25);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.32);
+}
+
+.neo-tech-logo-container {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(2, 6, 23, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.neo-tech-logo {
+  max-width: 44px;
+  max-height: 44px;
+  object-fit: contain;
+}
+
+.neo-tech-name {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+@media (max-width: 768px) {
+  .neo-glow {
+    width: 320px;
+    height: 320px;
+    filter: blur(100px);
+  }
+
+  .neo-tech-logo-container {
+    width: 64px;
+    height: 64px;
+  }
 }

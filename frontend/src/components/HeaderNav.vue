@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 neo-nav">
     <div class="container">
       <router-link to="/accueil" class="navbar-brand fw-bold">Romain SIAME</router-link>
       

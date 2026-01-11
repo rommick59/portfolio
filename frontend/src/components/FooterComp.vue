@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-dark text-white text-center py-4" data-aos="fade-up">
+  <footer class="bg-dark text-white text-center py-4 neo-footer" data-aos="fade-up">
     <p>&copy; {{ currentYear }} Romain SIAME - All rights reserved</p>
     
     <div class="social-icons">

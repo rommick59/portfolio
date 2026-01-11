@@ -1,7 +1,7 @@
 <template>
-  <section class="contact-section py-5">
-    <div class="container">
-      <h2 class="text-center mb-5 scroll-animate">📧 Contactez-moi</h2>
+  <section class="neo-section neo-min contact-section py-5">
+    <div class="container neo-content">
+      <h2 class="text-center mb-5 scroll-animate neo-heading">Contactez-moi</h2>
       
       <div v-if="successMessage" class="alert alert-success scroll-animate">{{ successMessage }}</div>
       <div v-if="errorMessage" class="alert alert-danger scroll-animate">{{ errorMessage }}</div>
