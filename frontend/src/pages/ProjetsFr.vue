@@ -36,6 +36,11 @@
                 <div class="mt-2">
                   <span v-for="(tech, idx) in project.technologies" :key="idx" class="badge bg-secondary me-1 mb-1">{{ tech }}</span>
                 </div>
+                <div class="mt-3" v-if="project.link">
+                  <a :href="project.link" target="_blank" class="btn btn-outline-primary btn-sm w-100">
+                    <i class="bi bi-box-arrow-up-right me-1"></i>Voir le projet
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -68,7 +73,8 @@ export default {
           description: 'Projet Java appliquant les principes de la POO et de gestion de données.',
           technologies: ['Java', 'POO', 'Gestion de données'],
           category: 'Java',
-          image: '/img/nodeBuster1.png'
+          image: '/img/nodeBuster1.png',
+          link: 'https://github.com/rommick59/NodeBuster'
         },
         {
           id: 2,
@@ -76,7 +82,8 @@ export default {
           description: 'Projet en binôme utilisant Astroquery pour récupérer et afficher des données astronomiques.',
           technologies: ['Python', 'Astroquery', 'Visualisation'],
           category: 'Python',
-          image: '/img/Astro1.png'
+          image: '/img/Astro1.png',
+          link: 'https://github.com/keylian15/astro'
         },
         {
           id: 3,
@@ -84,7 +91,8 @@ export default {
           description: 'Gestion de stock, création de liste de courses et affichage du chemin optimal.',
           technologies: ['Java', 'Algorithmes', 'Gestion'],
           category: 'Java',
-          image: '/img/magasin1.png'
+          image: '/img/magasin1.png',
+          link: 'https://github.com/rommick59/StoreConnect'
         },
         {
           id: 4,
@@ -92,7 +100,8 @@ export default {
           description: 'Application web de gestion et classement des étudiants selon leurs résultats académiques.',
           technologies: ['PHP', 'MySQL', 'CRUD'],
           category: 'Web',
-          image: '/img/php1.png'
+          image: '/img/php1.png',
+          link: 'https://github.com/rommick59/PHP'
         },
         {
           id: 5,
@@ -100,7 +109,8 @@ export default {
           description: 'API dédiée à la gestion des cartes Pokémon avec système d\'authentification sécurisé.',
           technologies: ['Node.js', 'Express', 'JWT', 'MongoDB'],
           category: 'Backend',
-          image: '/img/node1.png'
+          image: '/img/node1.png',
+          link: 'https://github.com/rommick59/pokemon-tcg-spa-rommick59-main'
         },
         {
           id: 6,
@@ -108,7 +118,8 @@ export default {
           description: 'Interface web dynamique pour exploiter l\'API Pokémon.',
           technologies: ['Vue.js', 'API REST', 'Frontend'],
           category: 'Frontend',
-          image: '/img/vue1.png'
+          image: '/img/vue1.png',
+          link: 'https://github.com/rommick59/pokemon-api-rommick59-main'
         },
         {
           id: 7,
@@ -116,7 +127,8 @@ export default {
           description: 'Application mobile inspirée de Minecraft pour explorer les objets et recettes du jeu.',
           technologies: ['Flutter', 'Dart', 'Mobile'],
           category: 'Mobile',
-          image: '/img/Flutter.png'
+          image: '/img/Flutter.png',
+          link: 'https://github.com/rommick59/front_erp'
         },
         {
           id: 8,
@@ -124,7 +136,8 @@ export default {
           description: 'Jeu du Morpion en réseau avec gestion des spectateurs et des multiples parties.',
           technologies: ['Socket.io', 'Node.js', 'Temps réel'],
           category: 'Web',
-          image: '/img/morpion.png'
+          image: '/img/morpion.png',
+          link: 'https://github.com/rommick59/Socket-Project'
         },
         {
           id: 9,
@@ -132,7 +145,8 @@ export default {
           description: 'Application de gestion d\'entreprise pour organiser commandes, produits et employés.',
           technologies: ['Full-stack', 'Base de données', 'Gestion'],
           category: 'Web',
-          image: '/img/erp1.png'
+          image: '/img/erp1.png',
+          link: 'https://github.com/rommick59/ERP'
         }
       ]
     }
