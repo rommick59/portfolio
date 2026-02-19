@@ -137,7 +137,7 @@ export default {
           technologies: ['Socket.io', 'Node.js', 'Temps réel'],
           category: 'Web',
           image: '/img/morpion.png',
-          link: 'https://github.com/rommick59/Socket-Project'
+          link: 'https://github.com/keylian15/Tic-Tac-Toe-Network'
         },
         {
           id: 9,
@@ -147,6 +147,32 @@ export default {
           category: 'Web',
           image: '/img/erp1.png',
           link: 'https://github.com/rommick59/ERP'
+        },
+        {
+          id: 10,
+          title: 'Basket Predictor (Front)',
+          description: 'Frontend interface to input player stats and get a predicted score from the API.',
+          technologies: ['Vue.js', 'Fetch', 'Frontend'],
+          category: 'Frontend',
+          image: '/img/basket1.png',
+          link: 'https://github.com/rommick59/WEB_Basket-main'
+        },
+        {
+          id: 11,
+          title: 'Basket Predictor API',
+          description: 'Serverless API that returns a predicted player score from given stats.',
+          technologies: ['Node.js', 'Serverless'],
+          category: 'Backend',
+          image: '/img/api.png',
+          link: 'https://github.com/rommick59/API_Basket'
+        },
+        {
+          id: 12,
+          title: 'Pterodactyl Hosting Project',
+          description: 'Research and recommendations for hosting game servers with Pterodactyl (no GitHub button).',
+          technologies: ['DevOps', 'Hosting', 'Pterodactyl'],
+          category: 'Web',
+          image: '/img/pterodactyl.png',
         }
       ]
     }
