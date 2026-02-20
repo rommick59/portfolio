@@ -154,7 +154,7 @@ export default {
           description: 'Frontend interface to input player stats and get a predicted score from the API.',
           technologies: ['Vue.js', 'Fetch', 'Frontend'],
           category: 'Frontend',
-          image: '/img/basket1.png',
+          image: '/img/Basket.jpg',
           link: 'https://github.com/rommick59/WEB_Basket-main'
         },
         {
@@ -163,7 +163,7 @@ export default {
           description: 'Serverless API that returns a predicted player score from given stats.',
           technologies: ['Node.js', 'Serverless'],
           category: 'Backend',
-          image: '/img/api.png',
+          image: '/img/Basket_API.png',
           link: 'https://github.com/rommick59/API_Basket'
         },
         {
@@ -172,7 +172,16 @@ export default {
           description: 'Research and recommendations for hosting game servers with Pterodactyl (no GitHub button).',
           technologies: ['DevOps', 'Hosting', 'Pterodactyl'],
           category: 'Web',
-          image: '/img/pterodactyl.png',
+          image: '/img/ptero1.png',
+        },
+        {
+          id: 13,
+          title: 'Jeu de la Vie',
+          description: 'Implementation du célèbre automate cellulaire de Conway en Java, avec une interface graphique simple.',
+          technologies: ['C++', 'Graphique'],
+          category: 'C++',
+          image: '/img/JeuVie1.png',
+          link: 'https://github.com/rommick59/Jeu-de-la-Vie'
         }
       ]
     }
