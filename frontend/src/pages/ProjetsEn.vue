@@ -29,7 +29,36 @@
           :key="project.id"
         >
             <div class="card neo-card project-card h-100">
-              <img v-if="project.image" :src="project.image" class="card-img-top" :alt="project.title" style="height: 200px; object-fit: cover;">
+              <div class="image-wrapper position-relative mb-3">
+                <img 
+                  v-if="project.images && project.images.length"
+                  :src="getCurrentImage(project)"
+                  class="card-img-top"
+                  :alt="project.title"
+                  style="height: 200px; object-fit: cover;"
+                >
+                <button 
+                  v-if="hasMultipleImages(project)"
+                  class="nav-btn nav-btn-left"
+                  @click="prevImage(project)"
+                >
+                  <img src="/img/fleche_gauche.png" alt="Previous" class="nav-icon">
+                </button>
+                <button 
+                  v-if="hasMultipleImages(project)"
+                  class="nav-btn nav-btn-right"
+                  @click="nextImage(project)"
+                >
+                  <img src="/img/fleche_droite.png" alt="Next" class="nav-icon">
+                </button>
+                <div v-if="hasMultipleImages(project)" class="dots-wrapper">
+                  <span 
+                    v-for="(img, idx) in project.images"
+                    :key="idx"
+                    :class="['dot', { active: currentImageIndex[project.id] === idx }]"
+                  ></span>
+                </div>
+              </div>
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title text-primary">{{ project.title }}</h5>
                 <p class="card-text flex-grow-1">{{ project.description }}</p>
@@ -65,7 +94,7 @@ export default {
   data() {
     return {
       selectedFilter: 'All',
-      categories: ['Web', 'Mobile', 'Backend', 'Frontend', 'Java', 'Python'],
+      categories: ['Web', 'Mobile', 'Backend', 'Frontend', 'Java', 'Python', 'C', 'C++', 'Pterodactyl'],
       projects: [
         {
           id: 1,
@@ -73,7 +102,7 @@ export default {
           description: 'Java project applying object-oriented programming principles and data management.',
           technologies: ['Java', 'OOP', 'Data Management'],
           category: 'Java',
-          image: '/img/nodeBuster1.png',
+          images: ['/img/nodeBuster1.png', '/img/nodeBuster2.png', '/img/nodeBuster3.png'],
           link: 'https://github.com/rommick59/NodeBuster'
         },
         {
@@ -82,17 +111,17 @@ export default {
           description: 'Pair project using Astroquery library to retrieve and display astronomical data.',
           technologies: ['Python', 'Astroquery', 'Visualization'],
           category: 'Python',
-          image: '/img/Astro1.png',
+          images: ['/img/Astro1.png', '/img/Astro2.png', '/img/Astro3.png'],
           link: 'https://github.com/keylian15/astro'
         },
         {
           id: 3,
           title: 'Store Connect',
           description: 'Inventory management, shopping list creation and optimal path display.',
-          technologies: ['Java', 'Algorithms', 'Management'],
-          category: 'Java',
-          image: '/img/magasin1.png',
-          link: 'https://github.com/rommick59/StoreConnect'
+          technologies: ['Python', 'Algorithms', 'Management'],
+          category: 'Python',
+          images: ['/img/magasin1.png', '/img/magasin2.png', '/img/magasin3.png'],
+          link: 'https://github.com/roro627/magasin_path_optimizer'
         },
         {
           id: 4,
@@ -100,7 +129,7 @@ export default {
           description: 'Web application for managing and ranking students based on their academic results.',
           technologies: ['PHP', 'MySQL', 'CRUD'],
           category: 'Web',
-          image: '/img/php1.png',
+          images: ['/img/php1.png', '/img/php2.png', '/img/php3.png'],
           link: 'https://github.com/rommick59/PHP'
         },
         {
@@ -109,7 +138,7 @@ export default {
           description: 'API dedicated to managing Pokémon cards with secure authentication system.',
           technologies: ['Node.js', 'Express', 'JWT', 'MongoDB'],
           category: 'Backend',
-          image: '/img/node1.png',
+          images: ['/img/node1.png', '/img/node2.png', '/img/node3.png'],
           link: 'https://github.com/rommick59/pokemon-tcg-spa-rommick59-main'
         },
         {
@@ -118,7 +147,7 @@ export default {
           description: 'Dynamic web interface to interact with the Pokémon API.',
           technologies: ['Vue.js', 'REST API', 'Frontend'],
           category: 'Frontend',
-          image: '/img/vue1.png',
+          images: ['/img/vue1.png', '/img/vue2.png', '/img/vue3.png'],
           link: 'https://github.com/rommick59/pokemon-api-rommick59-main'
         },
         {
@@ -127,16 +156,16 @@ export default {
           description: 'Mobile application inspired by Minecraft to explore game objects and recipes.',
           technologies: ['Flutter', 'Dart', 'Mobile'],
           category: 'Mobile',
-          image: '/img/Flutter.png',
+          images: ['/img/Flutter.png'],
           link: 'https://github.com/rommick59/front_erp'
         },
         {
           id: 8,
           title: 'Socket Project',
           description: 'Network Tic-tac-toe game with spectator and multiple game management.',
-          technologies: ['Socket.io', 'Node.js', 'Real-time'],
-          category: 'Web',
-          image: '/img/morpion.png',
+          technologies: ['Socket', 'C', 'Real-time'],
+          category: 'C',
+          images: ['/img/morpion1.png', '/img/morpion2.png'],
           link: 'https://github.com/keylian15/Tic-Tac-Toe-Network'
         },
         {
@@ -145,7 +174,7 @@ export default {
           description: 'Enterprise management application to organize orders, products and employees.',
           technologies: ['Full-stack', 'Database', 'Management'],
           category: 'Web',
-          image: '/img/erp1.png',
+          images: ['/img/erp1.png' , '/img/erp2.png', '/img/erp3.png'],
           link: 'https://github.com/rommick59/ERP'
         },
         {
@@ -154,7 +183,7 @@ export default {
           description: 'Frontend interface to input player stats and get a predicted score from the API.',
           technologies: ['Vue.js', 'Fetch', 'Frontend'],
           category: 'Frontend',
-          image: '/img/Basket.png',
+          images: ['/img/Basket.jpg'],
           link: 'https://github.com/rommick59/WEB_Basket-main'
         },
         {
@@ -163,7 +192,7 @@ export default {
           description: 'Serverless API that returns a predicted player score from given stats.',
           technologies: ['Node.js', 'Serverless'],
           category: 'Backend',
-          image: '/img/Basket_API.png',
+          images: ['/img/Basket_API.png'],
           link: 'https://github.com/rommick59/API_Basket'
         },
         {
@@ -171,8 +200,8 @@ export default {
           title: 'Pterodactyl Hosting Project',
           description: 'Research and recommendations for hosting game servers with Pterodactyl (no GitHub button).',
           technologies: ['DevOps', 'Hosting', 'Pterodactyl'],
-          category: 'Web',
-          image: '/img/ptero1.png',
+          category: 'Pterodactyl',
+          images: ['/img/ptero1.png', '/img/ptero2.png'],
         },
         {
           id: 13,
@@ -180,10 +209,11 @@ export default {
           description: 'Implementation of Conway\'s famous cellular automaton in Java, with a simple graphical interface.',
           technologies: ['C++', 'Graphical Interface'],
           category: 'C++',
-          image: '/img/JeuVie1.png',
+          images: ['/img/JeuVie1.png', '/img/JeuVie2.png'],
           link: 'https://github.com/rommick59/Jeu-de-la-Vie'
         }
-      ]
+      ],
+      currentImageIndex: {}
     }
   },
   computed: {
@@ -197,7 +227,38 @@ export default {
   methods: {
     getProjectCount(category) {
       return this.projects.filter(project => project.category === category).length
+    },
+    initIndexes() {
+      const map = {}
+      this.projects.forEach(project => {
+        map[project.id] = 0
+      })
+      this.currentImageIndex = map
+    },
+    hasMultipleImages(project) {
+      return project.images && project.images.length > 1
+    },
+    getCurrentImage(project) {
+      const idx = this.currentImageIndex[project.id] || 0
+      return project.images?.[idx] || ''
+    },
+    nextImage(project) {
+      if (!project.images || !project.images.length) return
+      const total = project.images.length
+      const current = this.currentImageIndex[project.id] || 0
+      const next = (current + 1) % total
+      this.currentImageIndex = { ...this.currentImageIndex, [project.id]: next }
+    },
+    prevImage(project) {
+      if (!project.images || !project.images.length) return
+      const total = project.images.length
+      const current = this.currentImageIndex[project.id] || 0
+      const prev = (current - 1 + total) % total
+      this.currentImageIndex = { ...this.currentImageIndex, [project.id]: prev }
     }
+  },
+  created() {
+    this.initIndexes()
   }
 }
 </script>
@@ -217,6 +278,72 @@ export default {
 .badge {
   font-size: 0.75rem;
   font-weight: 500;
+}
+
+.image-wrapper {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.nav-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.nav-btn:hover:not(:disabled) {
+  background: rgba(34, 211, 238, 0.85);
+}
+
+.nav-btn-left {
+  left: 10px;
+}
+
+.nav-btn-right {
+  right: 10px;
+}
+
+.dots-wrapper {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  transition: all 0.2s ease;
+}
+
+.dot.active {
+  background: rgba(34, 211, 238, 0.95);
+  transform: scale(1.1);
 }
 
 /* Filters */
