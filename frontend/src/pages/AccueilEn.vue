@@ -51,6 +51,12 @@
       <section class="py-5 scroll-animate">
         <div class="container">
           <h2 class="mb-4 neo-heading">My Professional Experience</h2>
+          <p class="mb-4"><strong>April 2026 - June 2026</strong><br>
+          R&D Internship (AI) - Asahikawa Kosen, Japan<br>
+          Developing machine learning models for mining and geoscience (predictive analysis and optimization), visiting department labs to learn ongoing research, joining school programs for experience sharing, and a planned day visit to Hokkaido University to observe university operations in Japan.</p>
+          <p class="mb-4"><strong>April 2025 - June 2025</strong><br>
+          Developer Intern - Freebridge<br>
+          Analyzed and improved the Bridge Solver Online application: codebase comprehension, fixes, and enhancement proposals (see linked GitHub project).</p>
           <p><strong>November 2021 - May 2022</strong><br>
           Civic Service - AOSM Basket Saint-Martin-Lez Tatinghem<br>
           Teaching and supervising basketball for children aged 4 to 9 years.</p>

@@ -13,7 +13,7 @@
         <h2 class="mb-4 neo-heading">À Propos de moi</h2>
         <div class="row align-items-center">
           <div class="col-md-6">
-            <p>Étudiant en 3ème année BUT Informatique à l'IUT du Littoral Côte d'Opale, je me spécialise dans la conception, le développement et la validation d'applications. Mon parcours est enrichi par des expériences en projets personnels, un service civique ainsi que ma passion pour les nouvelles technologies.</p>
+            <p>Étudiant en 3ᵉ année de BUT Informatique à l'IUT du Littoral Côte d'Opale, parcours Réalisation d'Applications : Conception, Développement, Validation, je me spécialise dans le développement d'applications full-stack et l'intégration d'API.</p>
           </div>
           <div class="col-md-6 text-center">
             <img src="/img/photo-profil.jpg" alt="Photo de Romain SIAME" class="img-fluid rounded-circle" style="max-width: 250px;">
@@ -51,6 +51,15 @@
       <section class="py-5 scroll-animate">
         <div class="container">
           <h2 class="mb-4 neo-heading">Mon Expérience Professionnelle</h2>
+
+          <p class="mb-4"><strong>Avril 2026 - Juin 2026</strong><br>
+          Stage R&D (IA) - Kosen d'Asahikawa, Japon<br>
+          Développement de modèles de machine learning appliqués aux mines et aux géosciences (prédiction et optimisation), immersion dans les laboratoires du département, participation aux programmes de l'école et visite prévue d'Hokkaido University pour observer le fonctionnement des universités japonaises.</p>
+
+          <p class="mb-4"><strong>Avril 2025 - Juin 2025</strong><br>
+          Stage Développeur - Freebridge<br>
+          Analyse et évolution de l'application Bridge Solver Online : compréhension du code existant, correctifs et propositions d'amélioration (voir projet GitHub associé).</p>
+
           <p><strong>Novembre 2021 - Mai 2022</strong><br>
           Service Civique - AOSM Basket Saint-Martin-Lez Tatinghem<br>
           Encadrement et apprentissage du basket à des enfants de 4 à 9 ans.</p>

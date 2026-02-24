@@ -211,6 +211,15 @@ export default {
           category: 'C++',
           images: ['/img/JeuVie1.png', '/img/JeuVie2.png'],
           link: 'https://github.com/rommick59/Jeu-de-la-Vie'
+        },
+        {
+          id: 14,
+          title: 'Bridge Solver Online (Freebridge)',
+          description: 'Maintenance and enhancements during the Freebridge internship: codebase analysis, fixes, and UX improvements.',
+          technologies: ['Web', 'Maintenance', 'Refactor'],
+          category: 'Web',
+          images: [],
+          link: 'https://github.com/lorenzovdkn/freebridge'
         }
       ],
       currentImageIndex: {}

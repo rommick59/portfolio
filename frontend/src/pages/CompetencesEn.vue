@@ -1,19 +1,55 @@
 <template>
-  <section class="neo-section neo-min py-5">
-    <div class="container neo-content">
-      <h2 class="text-center mb-5 scroll-animate neo-heading">Languages & Technologies</h2>
-      <div class="row scroll-stagger justify-content-center">
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4" v-for="tech in technologies" :key="tech.id">
-          <div class="neo-tech-card text-center p-3">
-            <div class="neo-tech-logo-container mb-3 mx-auto">
-              <img :src="tech.logo" :alt="tech.name" class="neo-tech-logo" />
+  <div class="competences-page">
+    <section class="neo-section neo-min py-5">
+      <div class="container neo-content">
+        <h2 class="text-center mb-5 scroll-animate neo-heading">Languages & Technologies</h2>
+        <div class="row scroll-stagger justify-content-center">
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4" v-for="tech in technologies" :key="tech.id">
+            <div class="neo-tech-card text-center p-3">
+              <div class="neo-tech-logo-container mb-3 mx-auto">
+                <img :src="tech.logo" :alt="tech.name" class="neo-tech-logo" />
+              </div>
+              <h6 class="neo-tech-name">{{ tech.name }}</h6>
             </div>
-            <h6 class="neo-tech-name">{{ tech.name }}</h6>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="neo-section neo-min py-5">
+      <div class="container neo-content">
+        <h2 class="text-center mb-3 scroll-animate neo-heading">BUT CS Competencies</h2>
+        <p class="text-center text-muted scroll-animate mb-5">Self-assessment with linked evidence</p>
+        <div class="row g-4 scroll-stagger">
+          <div class="col-md-6 col-lg-4" v-for="comp in competences" :key="comp.id">
+            <div class="neo-card h-100 p-4 d-flex flex-column">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <div>
+                  <small class="text-uppercase text-primary fw-bold">{{ comp.id }}</small>
+                  <h5 class="mb-1">{{ comp.title }}</h5>
+                </div>
+                <span class="badge" :class="levelClass(comp.level)">{{ comp.level }}</span>
+              </div>
+              <p class="text-muted mb-3">{{ comp.description }}</p>
+              <div>
+                <h6 class="text-primary mb-2">Evidence</h6>
+                <ul class="list-unstyled mb-0">
+                  <li v-for="proof in comp.proofs" :key="proof.label" class="mb-2">
+                    <template v-if="proof.link">
+                      <a :href="proof.link" target="_blank" rel="noopener" class="neo-link">{{ proof.label }}</a>
+                    </template>
+                    <template v-else>
+                      <span>{{ proof.label }}</span>
+                    </template>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -102,7 +138,53 @@ export default {
           name: 'REST API',
           logo: '/img/tech-logos/APIRest.png'
         }
+      ],
+      competences: [
+        {
+          id: 'C1',
+          title: 'Develop an application',
+          level: 'Achieved',
+          description:
+            'Built end-to-end apps, including a Pokémon card API in TypeScript/Express/Prisma with clear routing, database layer, and tests; also delivered Flutter UIs and Python projects.',
+          proofs: [
+            { label: 'Pokémon REST API (Node.js, Prisma)', link: 'https://github.com/rommick59/pokemon-tcg-spa-rommick59-main' },
+            { label: 'Flutter application', link: 'https://github.com/rommick59/front_erp' },
+            { label: 'Python simulation', link: 'https://github.com/keylian15/astro' }
+          ]
+        },
+        {
+          id: 'C2',
+          title: 'Optimize software',
+          level: 'In progress',
+          description:
+            'Codebase analysis during the Freebridge internship, refactors to clarify responsibilities, and ongoing focus on performance and code quality.',
+          proofs: [
+            { label: 'Bridge Solver Online analysis (internship)', link: null },
+            { label: 'API refactor & hardening', link: 'https://github.com/rommick59/API_Basket' },
+            { label: 'Debugging and fixes', link: 'https://github.com/rommick59/WEB_Basket-main' }
+          ]
+        },
+        {
+          id: 'C6',
+          title: 'Collaborate in a software team',
+          level: 'Achieved',
+          description:
+            'Group projects with Git/GitHub workflows and professional collaboration during the Freebridge internship, with regular reporting and stakeholder alignment.',
+          proofs: [
+            { label: 'University group projects', link: 'https://github.com/rommick59/ERP' },
+            { label: 'Git and GitHub usage', link: 'https://github.com/rommick59' },
+            { label: 'Freebridge internship', link: null },
+            { label: 'AOSM Basket civic service', link: null }
+          ]
+        }
       ]
+    }
+  },
+  methods: {
+    levelClass(level) {
+      if (!level) return 'bg-secondary'
+      const lower = level.toLowerCase()
+      return lower.includes('progress') || lower.includes('cours') ? 'bg-warning text-dark' : 'bg-success'
     }
   }
 }
