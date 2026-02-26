@@ -36,7 +36,16 @@
                 <ul class="list-unstyled mb-0">
                   <li v-for="proof in comp.proofs" :key="proof.label" class="mb-2">
                     <template v-if="proof.link">
-                      <a :href="proof.link" target="_blank" rel="noopener" class="neo-link">{{ proof.label }}</a>
+                      <component
+                        :is="isExternal(proof.link) ? 'a' : 'router-link'"
+                        :href="isExternal(proof.link) ? proof.link : null"
+                        :to="!isExternal(proof.link) ? proof.link : null"
+                        :target="isExternal(proof.link) ? '_blank' : null"
+                        rel="noopener"
+                        class="neo-link"
+                      >
+                        {{ proof.label }}
+                      </component>
                     </template>
                     <template v-else>
                       <span>{{ proof.label }}</span>
@@ -147,34 +156,34 @@ export default {
           description:
             "Conception et développement d'applications complètes (API Pokémon TypeScript/Express/Prisma), avec structuration des routes, gestion de données et implémentation de tests.",
           proofs: [
-            { label: 'API REST Pokémon (Node.js, Prisma)', link: 'https://github.com/rommick59/pokemon-tcg-spa-rommick59-main' },
-            { label: 'Application Flutter', link: 'https://github.com/rommick59/front_erp' },
-            { label: 'Simulation Python', link: 'https://github.com/keylian15/astro' }
+            { label: 'API REST Pokémon (Node.js, Prisma)', link: '/projets#project-node-api' },
+            { label: 'Application Flutter', link: '/projets#project-flutter-api' },
+            { label: 'Astroquerry', link: '/projets#project-astro' }
           ]
         },
         {
           id: 'C2',
           title: 'Optimiser des applications informatiques',
-          level: 'En cours d’acquisition',
+          level: 'Acquis',
           description:
             'Analyse de code existant (stage Freebridge), refactorings pour clarifier et maintenir le code, focus croissant sur performances et qualité.',
           proofs: [
-            { label: 'Analyse Bridge Solver Online (stage)', link: null },
-            { label: 'Amélioration et structuration de mon API', link: 'https://github.com/rommick59/API_Basket' },
-            { label: 'Debug et correction de programmes', link: 'https://github.com/rommick59/WEB_Basket-main' }
+            { label: 'Analyse Bridge Solver Online (stage)', link: '/projets#project-bridge-solver' },
+            { label: 'Basket API', link: '/projets#project-basket-api' },
+            { label: 'Basket Frontend', link: '/projets#project-basket-front' }
           ]
         },
         {
           id: 'C6',
-          title: 'Collaborer au sein d’une équipe informatique',
+          title: 'Collaborer au sein d\'une équipe informatique',
           level: 'Acquis',
           description:
             "Projets en groupe, usage quotidien de Git/GitHub et collaboration en stage (Freebridge) avec reporting régulier et respect des besoins métier.",
           proofs: [
-            { label: 'Projets universitaires en groupe', link: 'https://github.com/rommick59/ERP' },
+            { label: 'Projet ERP', link: '/projets#project-erp' },
             { label: 'Utilisation de Git et GitHub', link: 'https://github.com/rommick59' },
-            { label: 'Stage chez Freebridge', link: null },
-            { label: 'Service civique à l’AOSM Basket', link: null }
+            { label: 'Stage chez Freebridge', link: '/projets#project-bridge-solver' },
+            { label: 'Service civique à l\'AOSM Basket', link: null }
           ]
         }
       ]
@@ -185,6 +194,9 @@ export default {
       if (!level) return 'bg-secondary'
       const lower = level.toLowerCase()
       return lower.includes('cours') || lower.includes('progress') ? 'bg-warning text-dark' : 'bg-success'
+    },
+    isExternal(link) {
+      return /^https?:\/\//i.test(link)
     }
   }
 }

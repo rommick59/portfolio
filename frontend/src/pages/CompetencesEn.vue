@@ -36,7 +36,16 @@
                 <ul class="list-unstyled mb-0">
                   <li v-for="proof in comp.proofs" :key="proof.label" class="mb-2">
                     <template v-if="proof.link">
-                      <a :href="proof.link" target="_blank" rel="noopener" class="neo-link">{{ proof.label }}</a>
+                      <component
+                        :is="isExternal(proof.link) ? 'a' : 'router-link'"
+                        :href="isExternal(proof.link) ? proof.link : null"
+                        :to="!isExternal(proof.link) ? proof.link : null"
+                        :target="isExternal(proof.link) ? '_blank' : null"
+                        rel="noopener"
+                        class="neo-link"
+                      >
+                        {{ proof.label }}
+                      </component>
                     </template>
                     <template v-else>
                       <span>{{ proof.label }}</span>
@@ -147,9 +156,9 @@ export default {
           description:
             'Built end-to-end apps, including a Pokémon card API in TypeScript/Express/Prisma with clear routing, database layer, and tests; also delivered Flutter UIs and Python projects.',
           proofs: [
-            { label: 'Pokémon REST API (Node.js, Prisma)', link: 'https://github.com/rommick59/pokemon-tcg-spa-rommick59-main' },
-            { label: 'Flutter application', link: 'https://github.com/rommick59/front_erp' },
-            { label: 'Python simulation', link: 'https://github.com/keylian15/astro' }
+            { label: 'Pokémon REST API (Node.js, Prisma)', link: '/engprojet#project-node-api' },
+            { label: 'Flutter application', link: '/engprojet#project-flutter-api' },
+            { label: 'Python simulation', link: '/engprojet#project-astro' }
           ]
         },
         {
@@ -159,9 +168,9 @@ export default {
           description:
             'Codebase analysis during the Freebridge internship, refactors to clarify responsibilities, and ongoing focus on performance and code quality.',
           proofs: [
-            { label: 'Bridge Solver Online analysis (internship)', link: null },
-            { label: 'API refactor & hardening', link: 'https://github.com/rommick59/API_Basket' },
-            { label: 'Debugging and fixes', link: 'https://github.com/rommick59/WEB_Basket-main' }
+            { label: 'Bridge Solver Online analysis (internship)', link: '/engprojet#project-bridge-solver' },
+            { label: 'API refactor & hardening', link: '/engprojet#project-basket-api' },
+            { label: 'Debugging and fixes', link: '/engprojet#project-basket-front' }
           ]
         },
         {
@@ -171,9 +180,9 @@ export default {
           description:
             'Group projects with Git/GitHub workflows and professional collaboration during the Freebridge internship, with regular reporting and stakeholder alignment.',
           proofs: [
-            { label: 'University group projects', link: 'https://github.com/rommick59/ERP' },
+            { label: 'University group projects', link: '/engprojet#project-erp' },
             { label: 'Git and GitHub usage', link: 'https://github.com/rommick59' },
-            { label: 'Freebridge internship', link: null },
+            { label: 'Freebridge internship', link: '/engprojet#project-bridge-solver' },
             { label: 'AOSM Basket civic service', link: null }
           ]
         }
@@ -185,6 +194,9 @@ export default {
       if (!level) return 'bg-secondary'
       const lower = level.toLowerCase()
       return lower.includes('progress') || lower.includes('cours') ? 'bg-warning text-dark' : 'bg-success'
+    },
+    isExternal(link) {
+      return /^https?:\/\//i.test(link)
     }
   }
 }

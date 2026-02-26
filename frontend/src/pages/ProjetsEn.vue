@@ -27,6 +27,7 @@
           class="col-md-6 col-lg-4 mb-4" 
           v-for="project in filteredProjects" 
           :key="project.id"
+          :id="projectAnchor(project)"
         >
             <div class="card neo-card project-card h-100">
               <div class="image-wrapper position-relative mb-3">
@@ -102,6 +103,7 @@ export default {
           description: 'Java project applying object-oriented programming principles and data management.',
           technologies: ['Java', 'OOP', 'Data Management'],
           category: 'Java',
+          slug: 'nodebuster',
           images: ['/img/nodeBuster1.png', '/img/nodeBuster2.png', '/img/nodeBuster3.png'],
           link: 'https://github.com/rommick59/NodeBuster'
         },
@@ -111,6 +113,7 @@ export default {
           description: 'Pair project using Astroquery library to retrieve and display astronomical data.',
           technologies: ['Python', 'Astroquery', 'Visualization'],
           category: 'Python',
+          slug: 'astro',
           images: ['/img/Astro1.png', '/img/Astro2.png', '/img/Astro3.png'],
           link: 'https://github.com/keylian15/astro'
         },
@@ -120,6 +123,7 @@ export default {
           description: 'Inventory management, shopping list creation and optimal path display.',
           technologies: ['Python', 'Algorithms', 'Management'],
           category: 'Python',
+          slug: 'magasin-connect',
           images: ['/img/magasin1.png', '/img/magasin2.png', '/img/magasin3.png'],
           link: 'https://github.com/roro627/magasin_path_optimizer'
         },
@@ -129,6 +133,7 @@ export default {
           description: 'Web application for managing and ranking students based on their academic results.',
           technologies: ['PHP', 'MySQL', 'CRUD'],
           category: 'Web',
+          slug: 'php-project',
           images: ['/img/php1.png', '/img/php2.png', '/img/php3.png'],
           link: 'https://github.com/rommick59/PHP'
         },
@@ -138,6 +143,7 @@ export default {
           description: 'API dedicated to managing Pokémon cards with secure authentication system.',
           technologies: ['Node.js', 'Express', 'JWT', 'MongoDB'],
           category: 'Backend',
+          slug: 'node-api',
           images: ['/img/node1.png', '/img/node2.png', '/img/node3.png'],
           link: 'https://github.com/rommick59/pokemon-tcg-spa-rommick59-main'
         },
@@ -147,6 +153,7 @@ export default {
           description: 'Dynamic web interface to interact with the Pokémon API.',
           technologies: ['Vue.js', 'REST API', 'Frontend'],
           category: 'Frontend',
+          slug: 'vue-api',
           images: ['/img/vue1.png', '/img/vue2.png', '/img/vue3.png'],
           link: 'https://github.com/rommick59/pokemon-api-rommick59-main'
         },
@@ -156,6 +163,7 @@ export default {
           description: 'Mobile application inspired by Minecraft to explore game objects and recipes.',
           technologies: ['Flutter', 'Dart', 'Mobile'],
           category: 'Mobile',
+          slug: 'flutter-api',
           images: ['/img/Flutter.png'],
           link: 'https://github.com/rommick59/front_erp'
         },
@@ -165,6 +173,7 @@ export default {
           description: 'Network Tic-tac-toe game with spectator and multiple game management.',
           technologies: ['Socket', 'C', 'Real-time'],
           category: 'C',
+          slug: 'socket-project',
           images: ['/img/morpion1.png', '/img/morpion2.png'],
           link: 'https://github.com/keylian15/Tic-Tac-Toe-Network'
         },
@@ -174,6 +183,7 @@ export default {
           description: 'Enterprise management application to organize orders, products and employees.',
           technologies: ['Full-stack', 'Database', 'Management'],
           category: 'Web',
+          slug: 'erp',
           images: ['/img/erp1.png' , '/img/erp2.png', '/img/erp3.png'],
           link: 'https://github.com/rommick59/ERP'
         },
@@ -183,6 +193,7 @@ export default {
           description: 'Frontend interface to input player stats and get a predicted score from the API.',
           technologies: ['Vue.js', 'Fetch', 'Frontend'],
           category: 'Frontend',
+          slug: 'basket-front',
           images: ['/img/Basket.jpg'],
           link: 'https://github.com/rommick59/WEB_Basket-main'
         },
@@ -192,6 +203,7 @@ export default {
           description: 'Serverless API that returns a predicted player score from given stats.',
           technologies: ['Node.js', 'Serverless'],
           category: 'Backend',
+          slug: 'basket-api',
           images: ['/img/Basket_API.png'],
           link: 'https://github.com/rommick59/API_Basket'
         },
@@ -201,6 +213,7 @@ export default {
           description: 'Research and recommendations for hosting game servers with Pterodactyl (no GitHub button).',
           technologies: ['DevOps', 'Hosting', 'Pterodactyl'],
           category: 'Pterodactyl',
+          slug: 'pterodactyl-hosting',
           images: ['/img/ptero1.png', '/img/ptero2.png'],
         },
         {
@@ -209,6 +222,7 @@ export default {
           description: 'Implementation of Conway\'s famous cellular automaton in Java, with a simple graphical interface.',
           technologies: ['C++', 'Graphical Interface'],
           category: 'C++',
+          slug: 'jeu-de-la-vie',
           images: ['/img/JeuVie1.png', '/img/JeuVie2.png'],
           link: 'https://github.com/rommick59/Jeu-de-la-Vie'
         },
@@ -218,7 +232,8 @@ export default {
           description: 'Maintenance and enhancements during the Freebridge internship: codebase analysis, fixes, and UX improvements.',
           technologies: ['Web', 'Maintenance', 'Refactor'],
           category: 'Web',
-          images: [],
+          images: ['/img/FreeBridge.jpg'],
+          slug: 'bridge-solver',
           link: 'https://github.com/lorenzovdkn/freebridge'
         }
       ],
@@ -234,6 +249,18 @@ export default {
     }
   },
   methods: {
+    projectAnchor(project) {
+      return `project-${project.slug || project.id}`
+    },
+    scrollToCurrentHash() {
+      if (!this.$route.hash) return
+      this.$nextTick(() => {
+        const el = document.querySelector(this.$route.hash)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      })
+    },
     getProjectCount(category) {
       return this.projects.filter(project => project.category === category).length
     },
@@ -268,6 +295,16 @@ export default {
   },
   created() {
     this.initIndexes()
+  },
+  mounted() {
+    this.scrollToCurrentHash()
+  },
+  watch: {
+    '$route.hash': {
+      handler() {
+        this.scrollToCurrentHash()
+      }
+    }
   }
 }
 </script>
@@ -353,6 +390,10 @@ export default {
 .dot.active {
   background: rgba(34, 211, 238, 0.95);
   transform: scale(1.1);
+}
+
+[id^="project-"] {
+  scroll-margin-top: 120px;
 }
 
 /* Filters */
