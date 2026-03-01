@@ -66,6 +66,21 @@
         </div>
       </section>
 
+      <section class="py-5 scroll-animate">
+        <div class="container">
+          <h2 class="mb-4 neo-heading text-center">Mon BUT en 120 sec</h2>
+          <div class="ratio ratio-16x9 neo-card overflow-hidden">
+            <iframe
+              :src="videoUrl"
+              title="Présentation de mon BUT en 120 secondes"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              class="w-100 h-100"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
       <section class="neo-surface py-5 text-center download-cv-section scroll-animate">
         <div class="container">
           <a :href="cvUrl" class="btn btn-primary" download>Télécharger mon CV</a>
@@ -84,9 +99,11 @@ export default {
     useScrollAnimation()
 
     const cvUrl = `${import.meta.env.BASE_URL}cv/CV_Romain_SIAME.pdf`
+    const videoUrl = 'https://www.youtube.com/embed/msxMJRApSkk'
 
     return {
-      cvUrl
+      cvUrl,
+      videoUrl
     }
   }
 }
