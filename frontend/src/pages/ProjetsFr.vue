@@ -243,7 +243,8 @@ export default {
           technologies: ['VR', 'Game Design', 'Collaboration'],
           category: 'VR',
           slug: 'vr-puzzle-game',
-          images: ['/img/Silent_Office.png']
+          images: ['/img/Silent_Office.png'],
+          link: 'https://drive.google.com/drive/u/0/folders/10piFEKgMaJ6_9sfNiIUJem1UuLHMi6_c'
         }
       ],
       currentImageIndex: {}
