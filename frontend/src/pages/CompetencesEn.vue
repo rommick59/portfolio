@@ -151,7 +151,7 @@ export default {
         {
           id: 'C2',
           title: 'Optimize software',
-          level: 'In progress',
+          level: 'Achieved',
           description:
             'Codebase analysis during the Freebridge internship, refactors to clarify responsibilities, and ongoing focus on performance and code quality.',
           proofs: [

@@ -13,7 +13,7 @@
         <h2 class="mb-4 neo-heading">About Me</h2>
         <div class="row align-items-center">
           <div class="col-md-6">
-            <p>I am a second-year Computer Science student at IUT du Littoral Côte d'Opale, specializing in application design, development, and validation. My journey is enriched by personal projects, a civic service, and my passion for new technologies.</p>
+            <p>I am a 3rd year student in Computer Science at the IUT of Littoral Côte d'Opale, specializing in Application Development: Design, Development, Validation, I specialize in full-stack application development and API integration.</p>
           </div>
           <div class="col-md-6 text-center">
             <img src="/img/photo-profil.jpg" alt="Photo of Romain SIAME" class="img-fluid rounded-circle" style="max-width: 250px;">

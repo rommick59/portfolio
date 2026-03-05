@@ -95,12 +95,12 @@ export default {
   data() {
     return {
       selectedFilter: 'All',
-      categories: ['Web', 'Mobile', 'Backend', 'Frontend', 'Java', 'Python', 'C', 'C++', 'Pterodactyl'],
+      categories: ['Web', 'Mobile', 'Backend', 'Frontend', 'Java', 'Python', 'C', 'C++', 'Pterodactyl', 'VR'],
       projects: [
         {
           id: 1,
           title: 'NodeBuster',
-          description: 'Java project applying object-oriented programming principles and data management.',
+          description: 'Java project applying object-oriented programming principles and data management. Solo project completed in 2 weeks.',
           technologies: ['Java', 'OOP', 'Data Management'],
           category: 'Java',
           slug: 'nodebuster',
@@ -110,7 +110,7 @@ export default {
         {
           id: 2,
           title: 'Astro-Photography',
-          description: 'Pair project using Astroquery library to retrieve and display astronomical data.',
+          description: 'Pair project using Astroquery library to retrieve and display astronomical data, completed in 1 week.',
           technologies: ['Python', 'Astroquery', 'Visualization'],
           category: 'Python',
           slug: 'astro',
@@ -120,7 +120,7 @@ export default {
         {
           id: 3,
           title: 'Store Connect',
-          description: 'Inventory management, shopping list creation and optimal path display.',
+          description: 'Inventory management, shopping list creation and optimal path display. Team of 3 over 1 month.',
           technologies: ['Python', 'Algorithms', 'Management'],
           category: 'Python',
           slug: 'magasin-connect',
@@ -130,7 +130,7 @@ export default {
         {
           id: 4,
           title: 'PHP Project',
-          description: 'Web application for managing and ranking students based on their academic results.',
+          description: 'Web application for managing and ranking students based on their academic results. Solo project over 1 month.',
           technologies: ['PHP', 'MySQL', 'CRUD'],
           category: 'Web',
           slug: 'php-project',
@@ -140,7 +140,7 @@ export default {
         {
           id: 5,
           title: 'Node.js API',
-          description: 'API dedicated to managing Pokémon cards with secure authentication system.',
+          description: 'API dedicated to managing Pokémon cards with secure authentication system. Solo project completed in 2 months.',
           technologies: ['Node.js', 'Express', 'JWT', 'MongoDB'],
           category: 'Backend',
           slug: 'node-api',
@@ -150,7 +150,7 @@ export default {
         {
           id: 6,
           title: 'Vue.js API',
-          description: 'Dynamic web interface to interact with the Pokémon API.',
+          description: 'Dynamic web interface to interact with the Pokémon API. Solo project completed in 2 months.',
           technologies: ['Vue.js', 'REST API', 'Frontend'],
           category: 'Frontend',
           slug: 'vue-api',
@@ -160,7 +160,7 @@ export default {
         {
           id: 7,
           title: 'Flutter API',
-          description: 'Mobile application inspired by Minecraft to explore game objects and recipes.',
+          description: 'Mobile application inspired by Minecraft to explore game objects and recipes. Team of 3 over 2 weeks.',
           technologies: ['Flutter', 'Dart', 'Mobile'],
           category: 'Mobile',
           slug: 'flutter-api',
@@ -170,7 +170,7 @@ export default {
         {
           id: 8,
           title: 'Socket Project',
-          description: 'Network Tic-tac-toe game with spectator and multiple game management.',
+          description: 'Network Tic-tac-toe game with spectator and multiple game management. Pair project completed in 1 week.',
           technologies: ['Socket', 'C', 'Real-time'],
           category: 'C',
           slug: 'socket-project',
@@ -180,7 +180,7 @@ export default {
         {
           id: 9,
           title: 'ERP',
-          description: 'Enterprise management application to organize orders, products and employees.',
+          description: 'Enterprise management application to organize orders, products and employees. Solo project.',
           technologies: ['Full-stack', 'Database', 'Management'],
           category: 'Web',
           slug: 'erp',
@@ -190,7 +190,7 @@ export default {
         {
           id: 10,
           title: 'Basket Predictor (Front)',
-          description: 'Frontend interface to input player stats and get a predicted score from the API.',
+          description: 'Frontend interface to input player stats and get a predicted score from the API. Team of 6 over 1 week.',
           technologies: ['Vue.js', 'Fetch', 'Frontend'],
           category: 'Frontend',
           slug: 'basket-front',
@@ -200,7 +200,7 @@ export default {
         {
           id: 11,
           title: 'Basket Predictor API',
-          description: 'Serverless API that returns a predicted player score from given stats.',
+          description: 'Serverless API that returns a predicted player score from given stats. Team of 6 over 1 week.',
           technologies: ['Node.js', 'Serverless'],
           category: 'Backend',
           slug: 'basket-api',
@@ -210,7 +210,7 @@ export default {
         {
           id: 12,
           title: 'Pterodactyl Hosting Project',
-          description: 'Research and recommendations for hosting game servers with Pterodactyl (no GitHub button).',
+          description: 'Research and recommendations for hosting game servers with Pterodactyl (no GitHub button). Team of 4 over 1 week.',
           technologies: ['DevOps', 'Hosting', 'Pterodactyl'],
           category: 'Pterodactyl',
           slug: 'pterodactyl-hosting',
@@ -219,7 +219,7 @@ export default {
         {
           id: 13,
           title: 'Game of Life',
-          description: 'Implementation of Conway\'s famous cellular automaton in Java, with a simple graphical interface.',
+          description: 'Implementation of Conway\'s famous cellular automaton in Java, with a simple graphical interface. Solo project completed in 1 week.',
           technologies: ['C++', 'Graphical Interface'],
           category: 'C++',
           slug: 'jeu-de-la-vie',
@@ -229,12 +229,21 @@ export default {
         {
           id: 14,
           title: 'Bridge Solver Online (Freebridge)',
-          description: 'Maintenance and enhancements during the Freebridge internship: codebase analysis, fixes, and UX improvements.',
+          description: 'Maintenance and enhancements during the Freebridge internship: codebase analysis, fixes, and UX improvements. Pair project over 8 weeks.',
           technologies: ['Web', 'Maintenance', 'Refactor'],
           category: 'Web',
           images: ['/img/FreeBridge.jpg'],
           slug: 'bridge-solver',
           link: 'https://github.com/lorenzovdkn/freebridge'
+        },
+        {
+          id: 15,
+          title: 'Silent Office VR',
+          description: 'Creation of a virtual reality puzzle game completed in a team of 6 over 1 week.',
+          technologies: ['VR', 'Game Design', 'Teamwork'],
+          category: 'VR',
+          slug: 'vr-puzzle-game',
+          images: ['/img/Silent_Office.png']
         }
       ],
       currentImageIndex: {}

@@ -95,12 +95,12 @@ export default {
   data() {
     return {
       selectedFilter: 'Tous',
-      categories: ['Web', 'Mobile', 'Backend', 'Frontend', 'Java', 'Python', 'C', 'C++', 'Pterodactyl'],
+      categories: ['Web', 'Mobile', 'Backend', 'Frontend', 'Java', 'Python', 'C', 'C++', 'Pterodactyl', 'VR'],
       projects: [
         {
           id: 1,
           title: 'NodeBuster',
-          description: "API dédiée à la gestion des cartes Pokémon avec système d'authentification sécurisé.",
+          description: "API dédiée à la gestion des cartes Pokémon avec système d'authentification sécurisé. Solo pendant 2 semaines.",
           technologies: ['Java', 'POO', 'Gestion de données'],
           category: 'Java',
           slug: 'nodebuster',
@@ -110,7 +110,7 @@ export default {
         {
           id: 2,
           title: 'Astro-Photographie',
-          description: "Interface web dynamique pour exploiter l'API Pokémon.",
+          description: "Interface web dynamique pour exploiter l'API Pokémon. En binome pendant 1 semaine.",
           technologies: ['Python', 'Astroquery', 'Visualisation'],
           category: 'Python',
           slug: 'astro',
@@ -120,7 +120,7 @@ export default {
         {
           id: 3,
           title: 'Magasin Connect',
-          description: "Application de gestion d'entreprise pour organiser commandes, produits et employés.",
+          description: "Application de gestion d'entreprise pour organiser commandes, produits et employés. En trio pendant 1 mois.",
           technologies: ['Python', 'Algorithmes', 'Gestion'],
           category: 'Python',
           slug: 'magasin-connect',
@@ -130,7 +130,7 @@ export default {
         {
           id: 4,
           title: 'Projet PHP',
-          description: 'Application web de gestion et classement des étudiants selon leurs résultats académiques.',
+          description: 'Application web de gestion et classement des étudiants selon leurs résultats académiques. Solo pendant 1 mois.',
           technologies: ['PHP', 'MySQL', 'CRUD'],
           category: 'Web',
           slug: 'php-project',
@@ -140,7 +140,7 @@ export default {
         {
           id: 5,
           title: 'Node.js API',
-          description: 'API dédiée à la gestion des cartes Pokémon avec système d\'authentification sécurisé.',
+          description: 'API dédiée à la gestion des cartes Pokémon avec système d\'authentification sécurisé. Solo pendant 2 mois.',
           technologies: ['Node.js', 'Express', 'JWT', 'MongoDB'],
           category: 'Backend',
           slug: 'node-api',
@@ -150,7 +150,7 @@ export default {
         {
           id: 6,
           title: 'Vue.js API',
-          description: 'Interface web dynamique pour exploiter l\'API Pokémon.',
+          description: 'Interface web dynamique pour exploiter l\'API Pokémon. Solo pendant 2 mois.',
           technologies: ['Vue.js', 'API REST', 'Frontend'],
           category: 'Frontend',
           slug: 'vue-api',
@@ -160,7 +160,7 @@ export default {
         {
           id: 7,
           title: 'Flutter API',
-          description: 'Application mobile inspirée de Minecraft pour explorer les objets et recettes du jeu.',
+          description: 'Application mobile inspirée de Minecraft pour explorer les objets et recettes du jeu. En trio pendant 2 semaines.',
           technologies: ['Flutter', 'Dart', 'Mobile'],
           category: 'Mobile',
           slug: 'flutter-api',
@@ -170,7 +170,7 @@ export default {
         {
           id: 8,
           title: 'Socket Projet',
-          description: 'Jeu du Morpion en réseau avec gestion des spectateurs et des multiples parties.',
+          description: 'Jeu du Morpion en réseau avec gestion des spectateurs et des multiples parties. En binome pendant 1 semaine.',
           technologies: ['Socket', 'C', 'Temps réel'],
           category: 'C',
           slug: 'socket-project',
@@ -180,7 +180,7 @@ export default {
         {
           id: 9,
           title: 'ERP',
-          description: 'Application de gestion d\'entreprise pour organiser commandes, produits et employés.',
+          description: 'Application de gestion d\'entreprise pour organiser commandes, produits et employés. Solo.',
           technologies: ['Full-stack', 'Base de données', 'Gestion'],
           category: 'Web',
           slug: 'erp',
@@ -190,7 +190,7 @@ export default {
         {
           id: 10,
           title: 'Basket Predictor (Front)',
-          description: 'Frontend interface to input player stats and get a predicted score from the API.',
+          description: 'Frontend interface to input player stats and get a predicted score from the API. En groupe de 6 personnes pendant 1 semaine.',
           technologies: ['Vue.js', 'Fetch', 'Frontend'],
           category: 'Frontend',
           slug: 'basket-front',
@@ -200,7 +200,7 @@ export default {
         {
           id: 11,
           title: 'Basket Predictor API',
-          description: 'Serverless API that returns a predicted player score from given stats.',
+          description: 'Serverless API that returns a predicted player score from given stats. En groupe de 6 personnes pendant 1 semaine.',
           technologies: ['Node.js', 'Serverless'],
           category: 'Backend',
           slug: 'basket-api',
@@ -210,7 +210,7 @@ export default {
         {
           id: 12,
           title: 'Pterodactyl Hosting Project',
-          description: 'Research and recommendations for hosting game servers with Pterodactyl (no GitHub button).',
+          description: 'Research and recommendations for hosting game servers with Pterodactyl (no GitHub button). En groupe de 4 pendant 1 semaine.',
           technologies: ['DevOps', 'Hosting', 'Pterodactyl'],
           category: 'Pterodactyl',
           slug: 'pterodactyl-hosting',
@@ -219,7 +219,7 @@ export default {
         {
           id: 13,
           title: 'Jeu de la Vie',
-          description: 'Implementation du célèbre automate cellulaire de Conway en Java, avec une interface graphique simple.',
+          description: 'Implementation du célèbre automate cellulaire de Conway en Java, avec une interface graphique simple. Solo pendant 1 semaine.',
           technologies: ['C++', 'Graphique'],
           category: 'C++',
           slug: 'jeu-de-la-vie',
@@ -229,12 +229,21 @@ export default {
         {
           id: 14,
           title: 'Bridge Solver Online (Freebridge)',
-          description: 'Maintenance et évolutions pendant le stage Freebridge : analyse du code existant, correctifs et amélioration UX.',
+          description: 'Maintenance et évolutions pendant le stage Freebridge : analyse du code existant, correctifs et amélioration UX. En binôme pendant 8 semaines.',
           technologies: ['Web', 'Maintenance', 'Refactor'],
           category: 'Web',
           images: ['/img/FreeBridge.jpg'],
           slug: 'bridge-solver',
           link: 'https://github.com/lorenzovdkn/freebridge'
+        },
+        {
+          id: 15,
+          title: 'Silent Office VR',
+          description: 'Création d\'un puzzle game en réalité virtuelle réalisé en groupe de 6 personnes pendant 1 semaine.',
+          technologies: ['VR', 'Game Design', 'Collaboration'],
+          category: 'VR',
+          slug: 'vr-puzzle-game',
+          images: ['/img/Silent_Office.png']
         }
       ],
       currentImageIndex: {}

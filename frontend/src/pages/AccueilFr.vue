@@ -13,7 +13,7 @@
         <h2 class="mb-4 neo-heading">À Propos de moi</h2>
         <div class="row align-items-center">
           <div class="col-md-6">
-            <p>Étudiant en 3ᵉ année de BUT Informatique à l'IUT du Littoral Côte d'Opale, parcours Réalisation d'Applications : Conception, Développement, Validation, je me spécialise dans le développement d'applications full-stack et l'intégration d'API.</p>
+            <p>Je suis un étudiant en 3ᵉ année de BUT Informatique à l'IUT du Littoral Côte d'Opale, parcours Réalisation d'Applications : Conception, Développement, Validation, je me spécialise dans le développement d'applications full-stack et l'intégration d'API.</p>
           </div>
           <div class="col-md-6 text-center">
             <img src="/img/photo-profil.jpg" alt="Photo de Romain SIAME" class="img-fluid rounded-circle" style="max-width: 250px;">
